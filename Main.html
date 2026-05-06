@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Dr. Ohad Elishco — Academic Portfolio</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:wght@400;500;600&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed": "#d0e4ff",
+                        "on-surface-variant": "#43474e",
+                        "inverse-surface": "#263142",
+                        "secondary": "#006a68",
+                        "error-container": "#ffdad6",
+                        "on-surface": "#111c2c",
+                        "on-primary-container": "#86a0cd",
+                        "on-tertiary-fixed": "#001d35",
+                        "outline": "#74777f",
+                        "surface-tint": "#455f88",
+                        "surface-container-low": "#f0f3ff",
+                        "error": "#ba1a1a",
+                        "on-primary-fixed-variant": "#2d476f",
+                        "inverse-on-surface": "#ebf1ff",
+                        "tertiary": "#00223d",
+                        "background": "#f9f9ff",
+                        "primary-fixed": "#d6e3ff",
+                        "surface-container-high": "#dee8ff",
+                        "on-primary-fixed": "#001b3c",
+                        "on-error-container": "#93000a",
+                        "on-primary": "#ffffff",
+                        "on-secondary-container": "#006e6d",
+                        "secondary-fixed-dim": "#77d6d3",
+                        "on-tertiary": "#ffffff",
+                        "secondary-container": "#91f0ed",
+                        "inverse-primary": "#adc7f7",
+                        "surface-container-highest": "#d8e3fa",
+                        "tertiary-container": "#00385f",
+                        "on-error": "#ffffff",
+                        "primary-fixed-dim": "#adc7f7",
+                        "surface-variant": "#d8e3fa",
+                        "surface-container-lowest": "#ffffff",
+                        "outline-variant": "#c4c6cf",
+                        "primary-container": "#1a365d",
+                        "surface-container": "#e7eeff",
+                        "primary": "#002045",
+                        "on-secondary-fixed": "#00201f",
+                        "tertiary-fixed-dim": "#9bcaff",
+                        "surface-bright": "#f9f9ff",
+                        "on-tertiary-container": "#69a3de",
+                        "surface": "#f9f9ff",
+                        "secondary-fixed": "#94f2f0",
+                        "on-tertiary-fixed-variant": "#004a7a",
+                        "on-secondary": "#ffffff",
+                        "surface-dim": "#cfdaf1",
+                        "on-background": "#111c2c",
+                        "on-secondary-fixed-variant": "#00504e"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "content-gap": "32px",
+                        "section-gap": "80px",
+                        "base": "8px",
+                        "margin-inline": "24px",
+                        "container-max": "1100px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Inter"],
+                        "label-md": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-xl": ["Newsreader"],
+                        "headline-lg": ["Newsreader"],
+                        "headline-md": ["Newsreader"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "label-md": ["14px", { "lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "headline-xl": ["48px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "1.3", "fontWeight": "500" }],
+                        "headline-md": ["24px", { "lineHeight": "1.4", "fontWeight": "500" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { background-color: theme('colors.background'); color: theme('colors.on-background'); }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col">
+
+<!-- TopNavBar -->
+<nav class="bg-white dark:bg-slate-950 border-b border-slate-200 dark:border-slate-800 sticky top-0 z-50">
+    <div class="max-w-[1100px] mx-auto flex justify-between items-center px-6 py-4">
+        <a href="Main.html" class="text-lg font-bold text-slate-900 dark:text-slate-50 uppercase tracking-widest font-serif hover:text-teal-600 transition-colors">Ohad Elishco</a>
+        <div class="hidden md:flex gap-8 items-center">
+            <a class="text-teal-600 dark:text-teal-400 font-semibold border-b-2 border-teal-600 pb-1 font-serif text-base" href="Main.html">Home</a>
+            <a class="text-slate-600 dark:text-slate-400 hover:text-teal-600 transition-colors font-serif text-base" href="Research.html">Research</a>
+            <a class="text-slate-600 dark:text-slate-400 hover:text-teal-600 transition-colors font-serif text-base" href="Publications.html">Publications</a>
+            <a class="text-slate-600 dark:text-slate-400 hover:text-teal-600 transition-colors font-serif text-base" href="Teaching.html">Teaching</a>
+            <a class="text-slate-600 dark:text-slate-400 hover:text-teal-600 transition-colors font-serif text-base" href="People.html">Team</a>
+        </div>
+        <div class="hidden md:flex gap-3 items-center">
+            <a href="CV_Ohad.pdf" download class="border border-[#319795] text-[#319795] px-4 py-2 rounded font-label-md text-label-md hover:bg-[#E6FFFA] transition-colors flex items-center gap-1">
+                <span class="material-symbols-outlined text-sm" style="font-size:16px;">download</span> CV
+            </a>
+            <a href="mailto:ohadeli@bgu.ac.il" class="bg-[#319795] text-white px-5 py-2 rounded font-label-md text-label-md hover:bg-[#285E61] transition-colors">Contact</a>
+        </div>
+        <button id="mobile-menu-btn" class="md:hidden text-slate-600 hover:text-teal-600 transition-colors" aria-label="Toggle menu">
+            <span class="material-symbols-outlined">menu</span>
+        </button>
+    </div>
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden md:hidden border-t border-slate-200 bg-white dark:bg-slate-950">
+        <div class="max-w-[1100px] mx-auto px-6 py-5 flex flex-col gap-4 font-serif text-base">
+            <a href="Main.html" class="text-teal-600 font-semibold py-1">Home</a>
+            <a href="Research.html" class="text-slate-700 hover:text-teal-600 transition-colors py-1">Research</a>
+            <a href="Publications.html" class="text-slate-700 hover:text-teal-600 transition-colors py-1">Publications</a>
+            <a href="Teaching.html" class="text-slate-700 hover:text-teal-600 transition-colors py-1">Teaching</a>
+            <a href="People.html" class="text-slate-700 hover:text-teal-600 transition-colors py-1">Team</a>
+            <div class="border-t border-slate-100 pt-4 flex flex-col gap-3">
+                <a href="CV_Ohad.pdf" download class="flex items-center gap-2 text-[#319795] font-semibold">
+                    <span class="material-symbols-outlined text-sm" style="font-size:16px;">download</span> Download CV
+                </a>
+                <a href="mailto:ohadeli@bgu.ac.il" class="bg-[#319795] text-white text-center px-4 py-2 rounded font-label-md hover:bg-[#285E61] transition-colors">Contact</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<main class="flex-grow w-full max-w-[1100px] mx-auto px-6">
+
+    <!-- Hero Section -->
+    <section class="mt-20 mb-20 flex flex-col md:flex-row items-center gap-8">
+        <div class="flex-1 space-y-6">
+            <h1 class="font-headline-xl text-headline-xl text-primary">Dr. Ohad Elishco</h1>
+            <p class="font-headline-md text-headline-md text-surface-tint">Assistant Professor · Electrical &amp; Computer Engineering</p>
+            <p class="text-base text-surface-tint font-medium">Ben-Gurion University of the Negev, Beer-Sheva, Israel</p>
+            <div class="w-16 h-1 bg-outline-variant"></div>
+            <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl leading-relaxed">
+                I am an assistant professor in the School of Electrical and Computer Engineering at Ben-Gurion University of the Negev. My research lies at the intersection of coding theory and dynamical systems, with interests in constrained coding, distributed storage, DNA-based data storage, stochastic processes, and symbolic dynamics. I am always looking for motivated M.Sc. and Ph.D. students and postdocs to join my group.
+            </p>
+            <div class="text-sm text-on-surface-variant space-y-1">
+                <p>📧 <a href="mailto:ohadeli@bgu.ac.il" class="hover:text-teal-600 transition-colors underline underline-offset-2">ohadeli@bgu.ac.il</a> &nbsp;·&nbsp; <a href="mailto:elishco@gmail.com" class="hover:text-teal-600 transition-colors underline underline-offset-2">elishco@gmail.com</a></p>
+                <p>🏛 Office: ECE Building (33), Room 412</p>
+            </div>
+            <div class="pt-2 flex flex-wrap gap-3">
+                <a href="Publications.html" class="bg-[#319795] text-white px-6 py-3 rounded font-label-md text-label-md hover:bg-[#285E61] transition-colors">View Publications</a>
+                <a href="Research.html" class="border border-[#1A365D] text-[#1A365D] px-6 py-3 rounded font-label-md text-label-md hover:bg-surface-container transition-colors">Current Research</a>
+                <a href="CV_Ohad.pdf" download class="border border-[#319795] text-[#319795] px-6 py-3 rounded font-label-md text-label-md hover:bg-[#E6FFFA] transition-colors flex items-center gap-2">
+                    <span class="material-symbols-outlined" style="font-size:18px;">download</span> Download CV
+                </a>
+            </div>
+        </div>
+        <div class="flex-shrink-0 w-64 h-64 md:w-72 md:h-72 rounded-full overflow-hidden border border-[#E2E8F0] p-2">
+            <img alt="Dr. Ohad Elishco" class="w-full h-full object-cover rounded-full hover:scale-105 transition-all duration-500" src="Ohad.jpg"/>
+        </div>
+    </section>
+
+    <!-- Academic Journey -->
+<section class="mb-20">
+    <h2 class="font-headline-lg text-headline-lg text-primary mb-8 border-b border-outline-variant pb-2">Academic Journey</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6"><!-- MIT Card -->
+    <div class="bg-surface-container-lowest border border-[#E2E8F0] rounded-lg p-8 flex flex-col justify-between h-full hover:bg-surface-container-low transition-colors">
+    <div>
+    <div class="mb-4 text-surface-tint"><span class="material-symbols-outlined text-4xl">science</span></div>
+    <h3 class="font-headline-md text-headline-md text-primary mb-2">MIT</h3>
+    <p class="font-body-md text-body-md text-on-surface-variant">Postdoctoral Researcher at the Research Laboratory of Electronics (RLE). Hosted by Prof. Muriel Médard.</p>
+    </div>
+    <div class="mt-6"><span class="inline-block bg-[#E6FFFA] text-[#285E61] px-3 py-1 rounded font-label-md text-label-md">Postdoc</span></div>
+    </div>
+    <!-- University of Maryland Card -->
+    <div class="bg-surface-container-lowest border border-[#E2E8F0] rounded-lg p-8 flex flex-col justify-between h-full hover:bg-surface-container-low transition-colors">
+    <div>
+    <div class="mb-4 text-surface-tint"><span class="material-symbols-outlined text-4xl">school</span></div>
+    <h3 class="font-headline-md text-headline-md text-primary mb-2">University of Maryland, College Park</h3>
+    <p class="font-body-md text-body-md text-on-surface-variant">Postdoctoral Researcher in Electrical &amp; Computer Engineering. Hosted by Prof. Alexander Barg.</p>
+    </div>
+    <div class="mt-6"><span class="inline-block bg-[#E6FFFA] text-[#285E61] px-3 py-1 rounded font-label-md text-label-md">Postdoc</span></div>
+    </div>
+    <!-- BGU Card -->
+    <div class="bg-surface-container-lowest border border-[#E2E8F0] rounded-lg p-8 flex flex-col justify-between h-full hover:bg-surface-container-low transition-colors">
+    <div>
+    <div class="mb-4 text-surface-tint"><span class="material-symbols-outlined text-4xl">account_balance</span></div>
+    <h3 class="font-headline-md text-headline-md text-primary mb-2">Ben-Gurion University of the Negev</h3>
+    <p class="font-body-md text-body-md text-on-surface-variant">B.Sc. in Mathematics; B.Sc., M.Sc. &amp; Ph.D. in Electrical Engineering. Currently serving as Assistant Professor in ECE. Ph.D. supervised by Prof. Moshe Schwartz &amp; Dr. Tom Meyerovitch.</p>
+    </div>
+    <div class="mt-6"><span class="inline-block bg-[#E6FFFA] text-[#285E61] px-3 py-1 rounded font-label-md text-label-md">Current · Ph.D. Alma Mater</span></div>
+    </div></div>
+    </section>
+
+    <!-- Core Research Interests -->
+    <section class="mb-20">
+        <h2 class="font-headline-lg text-headline-lg text-primary mb-8 border-b border-outline-variant pb-2">Core Research Interests</h2>
+        <div class="space-y-6">
+            <div class="bg-[#F0F0F0] rounded-lg p-8 border border-[#E2E8F0]">
+                <div class="flex items-start gap-4">
+                    <div class="text-[#319795] mt-1"><span class="material-symbols-outlined">data_object</span></div>
+                    <div>
+                        <h3 class="font-headline-md text-headline-md text-primary mb-3">Coding for Constrained &amp; Distributed Systems</h3>
+                        <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed max-w-3xl">Studying the fundamental limits of information storage and transmission in systems with structural constraints. Research includes semiconstrained systems, symbol-pair read channels, burst-deletion correcting codes, and recoverable distributed storage architectures.</p>
+                        <div class="mt-4 flex gap-2 flex-wrap">
+                            <span class="bg-[#E6FFFA] text-[#285E61] px-3 py-1 rounded font-label-md text-label-md">Constrained Codes</span>
+                            <span class="bg-[#E6FFFA] text-[#285E61] px-3 py-1 rounded font-label-md text-label-md">Error Correction</span>
+                            <span class="bg-[#E6FFFA] text-[#285E61] px-3 py-1 rounded font-label-md text-label-md">Distributed Storage</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-[#F0F0F0] rounded-lg p-8 border border-[#E2E8F0]">
+                <div class="flex items-start gap-4">
+                    <div class="text-[#319795] mt-1"><span class="material-symbols-outlined">biotech</span></div>
+                    <div>
+                        <h3 class="font-headline-md text-headline-md text-primary mb-3">DNA Storage &amp; Biological Information Theory</h3>
+                        <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed max-w-3xl">Designing codes tailored to the unique constraints of DNA-based data storage systems. Topics include repeat-free codes, optimal synthesis reference sequences, composite DNA codes, string reconstruction, and the random access problem in DNA storage.</p>
+                        <div class="mt-4 flex gap-2 flex-wrap">
+                            <span class="bg-[#E6FFFA] text-[#285E61] px-3 py-1 rounded font-label-md text-label-md">DNA Storage</span>
+                            <span class="bg-[#E6FFFA] text-[#285E61] px-3 py-1 rounded font-label-md text-label-md">Repeat-Free Codes</span>
+                            <span class="bg-[#E6FFFA] text-[#285E61] px-3 py-1 rounded font-label-md text-label-md">Biological Channels</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-[#F0F0F0] rounded-lg p-8 border border-[#E2E8F0]">
+                <div class="flex items-start gap-4">
+                    <div class="text-[#319795] mt-1"><span class="material-symbols-outlined">query_stats</span></div>
+                    <div>
+                        <h3 class="font-headline-md text-headline-md text-primary mb-3">Symbolic Dynamics, Stochastic Processes &amp; Ergodic Theory</h3>
+                        <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed max-w-3xl">Investigating the long-term behavior of dynamical systems using information-theoretic tools. Research includes the entropy rate and capacity of Pólya string models, the behavior of k-tuple frequencies in mutation systems, and the capacity of dynamical storage systems.</p>
+                        <div class="mt-4 flex gap-2 flex-wrap">
+                            <span class="bg-[#E6FFFA] text-[#285E61] px-3 py-1 rounded font-label-md text-label-md">Symbolic Dynamics</span>
+                            <span class="bg-[#E6FFFA] text-[#285E61] px-3 py-1 rounded font-label-md text-label-md">Ergodic Theory</span>
+                            <span class="bg-[#E6FFFA] text-[#285E61] px-3 py-1 rounded font-label-md text-label-md">Pólya Urns</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<!-- Footer -->
+<footer class="bg-slate-50 dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 mt-auto">
+    <div class="max-w-[1100px] mx-auto py-10 px-6 flex flex-col md:flex-row justify-between items-center gap-4">
+        <div class="text-sm font-bold text-slate-900 dark:text-slate-50 font-serif">© 2025 Ohad Elishco</div>
+        <div class="flex flex-wrap justify-center gap-5">
+            <a class="text-slate-500 hover:text-teal-600 transition-colors font-serif text-sm hover:underline underline-offset-4" href="https://scholar.google.com/citations?user=w7IiZCQAAAAJ&hl=en" target="_blank">Google Scholar</a>
+            <a class="text-slate-500 hover:text-teal-600 transition-colors font-serif text-sm hover:underline underline-offset-4" href="https://arxiv.org/search/?searchtype=author&query=Elishco+O" target="_blank">arXiv</a>
+            <a class="text-slate-500 hover:text-teal-600 transition-colors font-serif text-sm hover:underline underline-offset-4" href="https://sites.google.com/view/ohad-elishco/home" target="_blank">BGU Profile</a>
+            <a class="text-slate-500 hover:text-teal-600 transition-colors font-serif text-sm hover:underline underline-offset-4" href="mailto:ohadeli@bgu.ac.il">ohadeli@bgu.ac.il</a>
+            <a class="text-slate-500 hover:text-teal-600 transition-colors font-serif text-sm hover:underline underline-offset-4" href="mailto:elishco@gmail.com">elishco@gmail.com</a>
+        </div>
+    </div>
+</footer>
+
+<script>
+    document.getElementById('mobile-menu-btn').addEventListener('click', function () {
+        const menu = document.getElementById('mobile-menu');
+        const icon = this.querySelector('.material-symbols-outlined');
+        menu.classList.toggle('hidden');
+        icon.textContent = menu.classList.contains('hidden') ? 'menu' : 'close';
+    });
+</script>
+</body></html>

@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Publications — Dr. Ohad Elishco</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:ital,wght@0,400..600;1,400..600&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=swap" rel="stylesheet" />
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#002045",
+                        secondary: "#319795",
+                        "secondary-dark": "#285E61",
+                        "surface-container": "#f0f3ff",
+                    },
+                    fontFamily: {
+                        serif: ["Newsreader", "serif"],
+                        sans: ["Inter", "sans-serif"],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+        .active-year { color: #319795; font-weight: 600; border-left: 2px solid #319795; padding-left: 1rem; margin-left: -1rem; }
+    </style>
+</head>
+
+<body class="bg-[#f9f9ff] text-slate-900 font-sans antialiased min-h-screen flex flex-col">
+
+<header class="bg-white sticky top-0 border-b border-slate-200 z-50">
+    <div class="max-w-[1100px] mx-auto flex justify-between items-center px-6 py-4">
+        <a href="Main.html" class="text-lg font-bold uppercase tracking-widest font-serif text-primary hover:text-secondary transition-colors">Ohad Elishco</a>
+        <nav class="hidden md:flex gap-8 items-center font-serif">
+            <a class="text-slate-600 hover:text-secondary transition-colors" href="Main.html">Home</a>
+            <a class="text-slate-600 hover:text-secondary transition-colors" href="Research.html">Research</a>
+            <a class="text-secondary font-semibold border-b-2 border-secondary pb-1" href="Publications.html">Publications</a>
+            <a class="text-slate-600 hover:text-secondary transition-colors" href="Teaching.html">Teaching</a>
+            <a class="text-slate-600 hover:text-secondary transition-colors" href="People.html">Team</a>
+        </nav>
+        <a href="mailto:elishco@gmail.com" class="hidden md:block px-6 py-2 bg-secondary text-white font-semibold rounded hover:bg-secondary-dark transition-colors">Contact</a>
+    </div>
+</header>
+
+<main class="flex-grow w-full max-w-[1100px] mx-auto px-6 py-16 flex flex-col gap-16">
+    <section class="max-w-3xl">
+        <h1 class="text-5xl font-serif font-semibold text-primary mb-4">Publications</h1>
+        <p class="text-lg text-slate-600 mb-6">Research in coding theory, constrained systems, DNA storage, and symbolic dynamics. 278+ citations · h-index 9 · i10-index 6.</p>
+        <div class="flex gap-4 flex-wrap">
+            <a class="flex items-center gap-2 px-4 py-2 border border-primary text-primary rounded hover:bg-slate-50 transition-all" href="https://scholar.google.com/citations?user=w7IiZCQAAAAJ&hl=en" target="_blank">
+                <span class="material-symbols-outlined text-sm">school</span> Google Scholar
+            </a>
+            <a class="flex items-center gap-2 px-4 py-2 border border-slate-400 text-slate-600 rounded hover:bg-slate-50 transition-all" href="https://arxiv.org/search/?searchtype=author&query=Elishco+O" target="_blank">
+                <span class="material-symbols-outlined text-sm">article</span> arXiv
+            </a>
+        </div>
+    </section>
+
+    <section class="flex flex-col md:flex-row gap-12 relative">
+        <aside class="w-full md:w-1/4">
+            <div class="sticky top-24 flex flex-col gap-4">
+                <h3 class="text-xs font-bold text-slate-400 uppercase tracking-widest">Filter by Year</h3>
+                <ul id="year-nav" class="flex flex-col gap-3 text-slate-500 border-l border-slate-200 pl-4">
+                </ul>
+            </div>
+        </aside>
+
+        <div id="publications-feed" class="w-full md:w-3/4 flex flex-col gap-16">
+        </div>
+    </section>
+</main>
+
+<footer class="bg-slate-50 border-t border-slate-200 mt-auto">
+    <div class="max-w-[1100px] mx-auto py-12 px-6 flex flex-col md:flex-row justify-between items-center gap-4">
+        <div class="text-sm font-bold text-slate-900 font-serif">© 2025 Ohad Elishco</div>
+        <div class="flex gap-6">
+            <a class="text-slate-500 hover:text-secondary transition-colors font-serif text-sm underline-offset-4 hover:underline" href="https://scholar.google.com/citations?user=w7IiZCQAAAAJ&hl=en" target="_blank">Google Scholar</a>
+            <a class="text-slate-500 hover:text-secondary transition-colors font-serif text-sm underline-offset-4 hover:underline" href="https://sites.google.com/view/ohad-elishco/home" target="_blank">BGU Profile</a>
+            <a class="text-slate-500 hover:text-secondary transition-colors font-serif text-sm underline-offset-4 hover:underline" href="mailto:elishco@gmail.com">Email</a>
+        </div>
+    </div>
+</footer>
+
+<script>
+    const publications = [
+        // 2025
+        {
+            year: 2025,
+            type: "Journal",
+            tag: "Error Correction",
+            title: "Codes Correcting Two Bursts of Exactly b Deletions",
+            authors: "Z. Ye, Y. Sun, W. Yu, G. Ge, O. Elishco",
+            venue: "IEEE Transactions on Information Theory (2025)",
+            citations: 9,
+            links: { scholar: "https://scholar.google.com/citations?user=w7IiZCQAAAAJ&hl=en" }
+        },
+        {
+            year: 2025,
+            type: "Preprint",
+            tag: "DNA Storage",
+            title: "Making it to First: The Random Access Problem in DNA Storage",
+            authors: "A. Boruchovsky, O. Elishco, R. Gabrys, A. Gruica, I. Tamo, E. Yaakobi",
+            venue: "arXiv:2501.12274 (2025)",
+            citations: 6,
+            links: { arxiv: "https://arxiv.org/abs/2501.12274" }
+        },
+        {
+            year: 2025,
+            type: "Journal",
+            tag: "DNA Storage",
+            title: "More on Codes for Combinatorial Composite DNA",
+            authors: "Z. Ye, O. Sabary, R. Gabrys, E. Yaakobi, O. Elishco",
+            venue: "Designs, Codes and Cryptography 93(8), 3437–3462 (2025)",
+            citations: 2,
+            links: { scholar: "https://scholar.google.com/citations?user=w7IiZCQAAAAJ&hl=en" }
+        },
+        // 2024
+        {
+            year: 2024,
+            type: "Journal",
+            tag: "Symbolic Dynamics",
+            title: "On the Long-Term Behavior of k-Tuples Frequencies in Mutation Systems",
+            authors: "O. Elishco",
+            venue: "IEEE Transactions on Information Theory 70(12), 8524–8545 (2024)",
+            citations: 5,
+            links: { scholar: "https://scholar.google.com/citations?user=w7IiZCQAAAAJ&hl=en" }
+        },
+        {
+            year: 2024,
+            type: "Journal",
+            tag: "Coding Theory",
+            title: "Codes over Absorption Channels",
+            authors: "Z. Ye, W. Yu, O. Elishco",
+            venue: "IEEE Transactions on Information Theory 70(6), 3981–4001 (2024)",
+            citations: 4,
+            links: { scholar: "https://scholar.google.com/citations?user=w7IiZCQAAAAJ&hl=en" }
+        },
+        {
+            year: 2024,
+            type: "Journal",
+            tag: "Distributed Storage",
+            title: "Storage Codes and Recoverable Systems on Lines and Grids",
+            authors: "A. Barg, O. Elishco, R. Gabrys, G. Wang, E. Yaakobi",
+            venue: "Designs, Codes and Cryptography 92(12), 4145–4168 (2024)",
+            citations: 2,
+            links: { scholar: "https://scholar.google.com/citations?user=w7IiZCQAAAAJ&hl=en" }
+        },
+        // 2023
+        {
+            year: 2023,
+            type: "Journal",
+            tag: "DNA Storage",
+            title: "Optimal Reference for DNA Synthesis",
+            authors: "O. Elishco, W. Huleihel",
+            venue: "IEEE Transactions on Information Theory 69(11), 6941–6955 (2023)",
+            citations: 15,
+            links: { scholar: "https://scholar.google.com/citations?user=w7IiZCQAAAAJ&hl=en" }
+        },
+        {
+            year: 2023,
+            type: "Journal",
+            tag: "Coding Theory",
+            title: "Reconstruction of a Single String from a Part of its Composition Multiset",
+            authors: "Z. Ye, O. Elishco",
+            venue: "IEEE Transactions on Information Theory 70(6), 3922–3940 (2023)",
+            citations: 8,
+            links: { scholar: "https://scholar.google.com/citations?user=w7IiZCQAAAAJ&hl=en" }
+        },
+        // 2022
+        {
+            year: 2022,
+            type: "Journal",
+            tag: "Distributed Storage",
+            title: "Recoverable Systems",
+            authors: "O. Elishco, A. Barg",
+            venue: "IEEE Transactions on Information Theory 68(6), 3681–3699 (2022)",
+            citations: 10,
+            links: { scholar: "https://scholar.google.com/citations?user=w7IiZCQAAAAJ&hl=en" }
+        },
+        // 2021
+        {
+            year: 2021,
+            type: "Journal",
+            tag: "DNA Storage",
+            title: "Repeat-Free Codes",
+            authors: "O. Elishco, R. Gabrys, E. Yaakobi, M. Médard",
+            venue: "IEEE Transactions on Information Theory 67(9), 5749–5764 (2021)",
+            citations: 50,
+            links: { scholar: "https://scholar.google.com/citations?user=w7IiZCQAAAAJ&hl=en" }
+        },
+        // 2020
+        {
+            year: 2020,
+            type: "Journal",
+            tag: "Symbolic Dynamics",
+            title: "Capacity of Dynamical Storage Systems",
+            authors: "O. Elishco, A. Barg",
+            venue: "IEEE Transactions on Information Theory 67(1), 329–346 (2020)",
+            citations: 3,
+            links: { scholar: "https://scholar.google.com/citations?user=w7IiZCQAAAAJ&hl=en" }
+        },
+        // 2019
+        {
+            year: 2019,
+            type: "Journal",
+            tag: "Coding Theory",
+            title: "Bounds and Constructions of Codes over Symbol-Pair Read Channels",
+            authors: "O. Elishco, R. Gabrys, E. Yaakobi",
+            venue: "IEEE Transactions on Information Theory 66(3), 1385–1395 (2019)",
+            citations: 40,
+            links: { scholar: "https://scholar.google.com/citations?user=w7IiZCQAAAAJ&hl=en" }
+        },
+        {
+            year: 2019,
+            type: "Journal",
+            tag: "Stochastic Processes",
+            title: "The Entropy Rate of Some Pólya String Models",
+            authors: "O. Elishco, F. F. Hassanzadeh, M. Schwartz, J. Bruck",
+            venue: "IEEE Transactions on Information Theory 65(12), 8180–8193 (2019)",
+            citations: 9,
+            links: { scholar: "https://scholar.google.com/citations?user=w7IiZCQAAAAJ&hl=en" }
+        },
+        {
+            year: 2019,
+            type: "Conference",
+            tag: "Information Theory",
+            title: "Throughput and Delay Analysis for Coded ARQ",
+            authors: "D. Malak, O. Elishco, M. Médard, E. M. Yeh",
+            venue: "IEEE ISIT 2019",
+            citations: 4,
+            links: { scholar: "https://scholar.google.com/citations?user=w7IiZCQAAAAJ&hl=en" }
+        },
+        // 2018
+        {
+            year: 2018,
+            type: "Journal",
+            tag: "Constrained Coding",
+            title: "On Independence and Capacity of Multidimensional Semiconstrained Systems",
+            authors: "O. Elishco, T. Meyerovitch, M. Schwartz",
+            venue: "IEEE Transactions on Information Theory 64(10), 6461–6483 (2018)",
+            citations: 3,
+            links: { scholar: "https://scholar.google.com/citations?user=w7IiZCQAAAAJ&hl=en" }
+        },
+        // 2017
+        {
+            year: 2017,
+            type: "Journal",
+            tag: "Constrained Coding",
+            title: "On Encoding Semiconstrained Systems",
+            authors: "O. Elishco, T. Meyerovitch, M. Schwartz",
+            venue: "IEEE Transactions on Information Theory 64(4), 2474–2484 (2017)",
+            citations: 9,
+            links: { scholar: "https://scholar.google.com/citations?user=w7IiZCQAAAAJ&hl=en" }
+        },
+        // 2016
+        {
+            year: 2016,
+            type: "Journal",
+            tag: "Constrained Coding",
+            title: "Semiconstrained Systems",
+            authors: "O. Elishco, T. Meyerovitch, M. Schwartz",
+            venue: "IEEE Transactions on Information Theory 62(4), 1688–1702 (2016)",
+            citations: 18,
+            links: { scholar: "https://scholar.google.com/citations?user=w7IiZCQAAAAJ&hl=en" }
+        },
+        {
+            year: 2016,
+            type: "Conference",
+            tag: "Stochastic Processes",
+            title: "The Capacity of Some Pólya String Models",
+            authors: "O. Elishco, F. Farnoud, M. Schwartz, J. Bruck",
+            venue: "IEEE ISIT 2016, pp. 270–274",
+            citations: 9,
+            links: { scholar: "https://scholar.google.com/citations?user=w7IiZCQAAAAJ&hl=en" }
+        },
+        // 2014
+        {
+            year: 2014,
+            type: "Journal",
+            tag: "Information Theory",
+            title: "Capacity and Coding for the Ising Channel with Feedback",
+            authors: "O. Elishco, H. Permuter",
+            venue: "IEEE Transactions on Information Theory 60(9), 5138–5149 (2014)",
+            citations: 63,
+            links: { scholar: "https://scholar.google.com/citations?user=w7IiZCQAAAAJ&hl=en" }
+        },
+        // 2011
+        {
+            year: 2011,
+            type: "Conference",
+            tag: "Information Theory",
+            title: "Capacity of the Ising Channel with Feedback",
+            authors: "O. Elishco, H. H. Permuter",
+            venue: "IEEE ISIT 2011, pp. 3004–3008",
+            citations: 3,
+            links: { scholar: "https://scholar.google.com/citations?user=w7IiZCQAAAAJ&hl=en" }
+        }
+    ];
+
+    const tagColors = {
+        "Error Correction":    "bg-blue-50 text-blue-700",
+        "DNA Storage":         "bg-green-50 text-green-700",
+        "Symbolic Dynamics":   "bg-purple-50 text-purple-700",
+        "Coding Theory":       "bg-teal-50 text-teal-700",
+        "Distributed Storage": "bg-indigo-50 text-indigo-700",
+        "Constrained Coding":  "bg-orange-50 text-orange-700",
+        "Stochastic Processes":"bg-rose-50 text-rose-700",
+        "Information Theory":  "bg-slate-100 text-slate-700",
+    };
+
+    const typeColors = {
+        "Journal":    "bg-teal-50 text-teal-700",
+        "Conference": "bg-amber-50 text-amber-700",
+        "Preprint":   "bg-purple-50 text-purple-700",
+    };
+
+    function renderPublications() {
+        const feed = document.getElementById('publications-feed');
+        const nav = document.getElementById('year-nav');
+
+        const years = [...new Set(publications.map(p => p.year))].sort((a, b) => b - a);
+
+        feed.innerHTML = '';
+        nav.innerHTML = '';
+
+        years.forEach(year => {
+            nav.innerHTML += `<li><a href="#year-${year}" class="hover:text-[#319795] transition-all">${year}</a></li>`;
+
+            const section = document.createElement('div');
+            section.id = `year-${year}`;
+            section.className = "flex flex-col gap-6";
+            section.innerHTML = `<h2 class="text-3xl font-serif font-medium text-primary border-b pb-2">${year}</h2>`;
+
+            const yearPapers = publications.filter(p => p.year === year);
+            yearPapers.forEach(paper => {
+                const tagClass = tagColors[paper.tag] || "bg-slate-100 text-slate-600";
+                const typeClass = typeColors[paper.type] || "bg-slate-100 text-slate-600";
+                const citeBadge = paper.citations ? `<span class="text-xs text-slate-400 italic">${paper.citations} citation${paper.citations !== 1 ? 's' : ''}</span>` : '';
+
+                let links = '';
+                if (paper.links.arxiv) {
+                    links += `<a href="${paper.links.arxiv}" target="_blank" class="text-[#319795] text-sm font-bold flex items-center gap-1 hover:underline"><span class="material-symbols-outlined text-sm">description</span> arXiv</a>`;
+                }
+                if (paper.links.scholar) {
+                    links += `<a href="${paper.links.scholar}" target="_blank" class="text-slate-500 text-sm font-bold flex items-center gap-1 hover:underline"><span class="material-symbols-outlined text-sm">school</span> Scholar</a>`;
+                }
+
+                section.innerHTML += `
+                    <article class="group p-4 -mx-4 rounded-xl hover:bg-white hover:shadow-md transition-all duration-300">
+                        <div class="flex gap-2 mb-2 flex-wrap items-center">
+                            <span class="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded ${typeClass}">${paper.type}</span>
+                            <span class="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded ${tagClass}">${paper.tag}</span>
+                            ${citeBadge}
+                        </div>
+                        <h3 class="text-xl font-semibold text-slate-800 group-hover:text-[#319795] transition-colors">${paper.title}</h3>
+                        <p class="text-slate-600 mt-1">${paper.authors}</p>
+                        <p class="text-sm text-slate-400 italic mt-1">${paper.venue}</p>
+                        <div class="flex gap-4 mt-4">${links}</div>
+                    </article>
+                `;
+            });
+            feed.appendChild(section);
+        });
+    }
+
+    renderPublications();
+</script>
+
+</body>
+</html>
