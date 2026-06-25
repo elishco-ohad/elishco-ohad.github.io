@@ -9,6 +9,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:wght@400;500;600&display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style>
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+    </style>
 <script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
@@ -100,24 +103,42 @@
 <body class="bg-surface text-on-surface font-body-md antialiased min-h-screen flex flex-col">
 
 <!-- TopNavBar -->
-<nav class="bg-white dark:bg-slate-950 w-full border-b border-slate-200 dark:border-slate-800 z-50 sticky top-0">
-<div class="max-w-[1100px] mx-auto flex justify-between items-center px-6 py-4">
-<a href="index.html" class="text-lg font-bold text-slate-900 dark:text-slate-50 uppercase tracking-widest font-serif hover:text-teal-600 transition-colors">Ohad Elishco</a>
-<div class="hidden md:flex gap-6 items-center">
-<a class="text-slate-600 dark:text-slate-400 hover:text-teal-600 font-serif text-base tracking-tight transition-colors duration-200" href="index.html">Home</a>
-<a class="text-slate-600 dark:text-slate-400 hover:text-teal-600 font-serif text-base tracking-tight transition-colors duration-200" href="Research.html">Research</a>
-<a class="text-slate-600 dark:text-slate-400 hover:text-teal-600 font-serif text-base tracking-tight transition-colors duration-200" href="Publications.html">Publications</a>
-<a class="text-teal-600 dark:text-teal-400 font-semibold border-b-2 border-teal-600 pb-1 font-serif text-base tracking-tight" href="Teaching.html">Teaching</a>
-<a class="text-slate-600 dark:text-slate-400 hover:text-teal-600 font-serif text-base tracking-tight transition-colors duration-200" href="People.html">Team</a>
-</div>
-<div class="hidden md:flex gap-3 items-center">
-<a href="CV_Ohad.pdf" download class="border border-[#319795] text-[#319795] px-4 py-2 rounded font-label-md text-label-md hover:bg-[#E6FFFA] transition-colors flex items-center gap-1 text-sm">
-<span class="material-symbols-outlined" style="font-size:16px;">download</span> CV
-</a>
-<a href="mailto:ohadeli@bgu.ac.il" class="bg-[#319795] text-white px-5 py-2 rounded font-label-md text-label-md hover:bg-[#285E61] transition-colors">Contact</a>
-</div>
-</div>
-</nav>
+<header class="bg-white dark:bg-slate-950 border-b border-slate-200 dark:border-slate-800 sticky top-0 z-50">
+    <div class="max-w-[1100px] mx-auto flex justify-between items-center px-6 py-4">
+        <a href="index.html" class="text-lg font-bold text-slate-900 dark:text-slate-50 uppercase tracking-widest font-serif hover:text-teal-600 transition-colors">Ohad Elishco</a>
+        <nav class="hidden md:flex gap-8">
+            <a class="text-slate-600 hover:text-teal-600 transition-colors font-serif text-base" href="index.html">Home</a>
+            <a class="text-slate-600 hover:text-teal-600 transition-colors font-serif text-base" href="Research.html">Research</a>
+            <a class="text-slate-600 hover:text-teal-600 transition-colors font-serif text-base" href="Publications.html">Publications</a>
+            <a class="text-teal-600 font-semibold border-b-2 border-teal-600 pb-1 font-serif text-base" href="Teaching.html">Teaching</a>
+            <a class="text-slate-600 hover:text-teal-600 transition-colors font-serif text-base" href="People.html">Team</a>
+        </nav>
+        <div class="hidden md:flex gap-3 items-center">
+            <a href="CV_Ohad.pdf" download class="border border-[#319795] text-[#319795] px-4 py-2 rounded font-label-md text-label-md hover:bg-[#E6FFFA] transition-colors flex items-center gap-1 text-sm">
+                <span class="material-symbols-outlined" style="font-size:16px;">download</span> CV
+            </a>
+            <a href="mailto:ohadeli@bgu.ac.il" class="bg-[#319795] text-white px-5 py-2 rounded font-label-md text-label-md hover:bg-[#285E61] transition-colors">Contact</a>
+        </div>
+        <button id="mobile-menu-btn" class="md:hidden text-slate-600 hover:text-teal-600 transition-colors" aria-label="Toggle menu">
+            <span class="material-symbols-outlined">menu</span>
+        </button>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden border-t border-slate-200 bg-white dark:bg-slate-950">
+        <div class="max-w-[1100px] mx-auto px-6 py-5 flex flex-col gap-4 font-serif text-base">
+            <a href="index.html" class="text-slate-700 hover:text-teal-600 transition-colors py-1">Home</a>
+            <a href="Research.html" class="text-slate-700 hover:text-teal-600 transition-colors py-1">Research</a>
+            <a href="Publications.html" class="text-slate-700 hover:text-teal-600 transition-colors py-1">Publications</a>
+            <a href="Teaching.html" class="text-teal-600 font-semibold py-1">Teaching</a>
+            <a href="People.html" class="text-slate-700 hover:text-teal-600 transition-colors py-1">Team</a>
+            <div class="border-t border-slate-100 pt-4 flex flex-col gap-3">
+                <a href="CV_Ohad.pdf" download class="flex items-center gap-2 text-[#319795] font-semibold">
+                    <span class="material-symbols-outlined" style="font-size:16px;">download</span> Download CV
+                </a>
+                <a href="mailto:ohadeli@bgu.ac.il" class="bg-[#319795] text-white text-center px-4 py-2 rounded font-label-md hover:bg-[#285E61] transition-colors">Contact</a>
+            </div>
+        </div>
+    </div>
+</header>
 
 <!-- Main Content -->
 <main class="flex-grow max-w-[1100px] mx-auto w-full px-6 py-20 flex flex-col gap-20">
@@ -278,4 +299,13 @@
 </div>
 </div>
 </footer>
+
+<script>
+    document.getElementById('mobile-menu-btn').addEventListener('click', function () {
+        const menu = document.getElementById('mobile-menu');
+        const icon = this.querySelector('.material-symbols-outlined');
+        menu.classList.toggle('hidden');
+        icon.textContent = menu.classList.contains('hidden') ? 'menu' : 'close';
+    });
+</script>
 </body></html>
