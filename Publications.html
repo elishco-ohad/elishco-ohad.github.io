@@ -4,6 +4,7 @@
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <title>Publications — Dr. Ohad Elishco</title>
+    <meta name="description" content="Publications of Dr. Ohad Elishco: journal articles, conference papers, and preprints in coding theory, DNA storage, constrained systems, and information theory."/>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -58,6 +59,24 @@
             </a>
             <a href="mailto:ohadeli@bgu.ac.il" class="bg-[#319795] text-white px-5 py-2 rounded font-label-md text-label-md hover:bg-[#285E61] transition-colors">Contact</a>
         </div>
+        <button id="mobile-menu-btn" class="md:hidden text-slate-600 hover:text-teal-600 transition-colors" aria-label="Toggle menu">
+            <span class="material-symbols-outlined">menu</span>
+        </button>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden border-t border-slate-200 bg-white">
+        <div class="max-w-[1100px] mx-auto px-6 py-5 flex flex-col gap-4 font-serif text-base">
+            <a href="index.html" class="text-slate-700 hover:text-teal-600 transition-colors py-1">Home</a>
+            <a href="Research.html" class="text-slate-700 hover:text-teal-600 transition-colors py-1">Research</a>
+            <a href="Publications.html" class="text-teal-600 font-semibold py-1">Publications</a>
+            <a href="Teaching.html" class="text-slate-700 hover:text-teal-600 transition-colors py-1">Teaching</a>
+            <a href="People.html" class="text-slate-700 hover:text-teal-600 transition-colors py-1">Team</a>
+            <div class="border-t border-slate-100 pt-4 flex flex-col gap-3">
+                <a href="CV_Ohad.pdf" download class="flex items-center gap-2 text-[#319795] font-semibold">
+                    <span class="material-symbols-outlined" style="font-size:16px;">download</span> Download CV
+                </a>
+                <a href="mailto:ohadeli@bgu.ac.il" class="bg-[#319795] text-white text-center px-4 py-2 rounded font-label-md hover:bg-[#285E61] transition-colors">Contact</a>
+            </div>
+        </div>
     </div>
 </header>
 
@@ -91,7 +110,7 @@
 
 <footer class="bg-slate-50 border-t border-slate-200 mt-auto">
     <div class="max-w-[1100px] mx-auto py-12 px-6 flex flex-col md:flex-row justify-between items-center gap-4">
-        <div class="text-sm font-bold text-slate-900 font-serif">© 2025 Ohad Elishco</div>
+        <div class="text-sm font-bold text-slate-900 font-serif">© 2026 Ohad Elishco</div>
         <div class="flex gap-6">
             <a class="text-slate-500 hover:text-secondary transition-colors font-serif text-sm underline-offset-4 hover:underline" href="https://scholar.google.com/citations?user=w7IiZCQAAAAJ&hl=en" target="_blank">Google Scholar</a>
             <a class="text-slate-500 hover:text-secondary transition-colors font-serif text-sm underline-offset-4 hover:underline" href="https://sites.google.com/view/ohad-elishco/home" target="_blank">BGU Profile</a>
@@ -432,6 +451,13 @@
     }
 
     renderPublications();
+
+    document.getElementById('mobile-menu-btn').addEventListener('click', function () {
+        const menu = document.getElementById('mobile-menu');
+        const icon = this.querySelector('.material-symbols-outlined');
+        menu.classList.toggle('hidden');
+        icon.textContent = menu.classList.contains('hidden') ? 'menu' : 'close';
+    });
 </script>
 
 </body>
