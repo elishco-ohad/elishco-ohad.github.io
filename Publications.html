@@ -452,6 +452,28 @@
 
     renderPublications();
 
+    // Scroll-spy: highlight the active year in the sidebar as user scrolls
+    (function () {
+        const navLinks = {};
+        document.querySelectorAll('#year-nav a').forEach(a => {
+            const id = a.getAttribute('href').slice(1);
+            navLinks[id] = a;
+        });
+
+        function setActive(id) {
+            Object.values(navLinks).forEach(a => a.classList.remove('active-year'));
+            if (navLinks[id]) navLinks[id].classList.add('active-year');
+        }
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) setActive(entry.target.id);
+            });
+        }, { rootMargin: '-10% 0px -80% 0px', threshold: 0 });
+
+        document.querySelectorAll('#publications-feed > div[id^="year-"]').forEach(el => observer.observe(el));
+    })();
+
     document.getElementById('mobile-menu-btn').addEventListener('click', function () {
         const menu = document.getElementById('mobile-menu');
         const icon = this.querySelector('.material-symbols-outlined');
