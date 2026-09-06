@@ -356,6 +356,21 @@
            Where a work also has a journal version, the arXiv preprint is the
            extended journal manuscript and is linked from that entry instead.
            --------------------------------------------------------------- */
+        // WCC is a workshop without formal proceedings; the extended abstract and
+        // slides on the WCC site are the citable record. The extended journal
+        // version is listed separately above as arXiv:2604.25445.
+        {
+            year: 2026,
+            type: "Conference",
+            tag: "Symbolic Dynamics",
+            title: "Central Limit Theorem for k-tuples Frequencies in Mutation Systems",
+            authors: "L. Koram, O. Elishco",
+            venue: "14th International Workshop on Coding and Cryptography (WCC 2026), Paris, France — no proceedings",
+            links: {
+                paper:  "https://wcc2026.inria.fr/assets/final_versions/WCC2026_paper_66.pdf",
+                slides: "https://wcc2026.inria.fr/assets/slides/wcc-koram.pdf"
+            }
+        },
         {
             year: 2025,
             type: "Conference",
@@ -528,8 +543,14 @@
             const doiLabel = paper.type === 'Conference' ? 'Proceedings' : 'Journal';
             links += `<a href="${paper.links.doi}" target="_blank" class="text-[#319795] text-sm font-bold flex items-center gap-1 hover:underline"><span class="material-symbols-outlined text-sm">open_in_new</span> ${doiLabel}</a>`;
         }
+        if (paper.links.paper) {
+            links += `<a href="${paper.links.paper}" target="_blank" class="text-[#319795] text-sm font-bold flex items-center gap-1 hover:underline"><span class="material-symbols-outlined text-sm">description</span> Extended Abstract</a>`;
+        }
         if (paper.links.arxiv) {
             links += `<a href="${paper.links.arxiv}" target="_blank" class="text-[#319795] text-sm font-bold flex items-center gap-1 hover:underline"><span class="material-symbols-outlined text-sm">description</span> arXiv</a>`;
+        }
+        if (paper.links.slides) {
+            links += `<a href="${paper.links.slides}" target="_blank" class="text-slate-500 text-sm font-bold flex items-center gap-1 hover:underline"><span class="material-symbols-outlined text-sm">slideshow</span> Slides</a>`;
         }
         if (paper.links.scholar) {
             links += `<a href="${paper.links.scholar}" target="_blank" class="text-slate-500 text-sm font-bold flex items-center gap-1 hover:underline"><span class="material-symbols-outlined text-sm">school</span> Scholar</a>`;
