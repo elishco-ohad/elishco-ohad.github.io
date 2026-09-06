@@ -83,7 +83,7 @@
 <main class="flex-grow w-full max-w-[1100px] mx-auto px-6 py-16 flex flex-col gap-16">
     <section class="max-w-3xl">
         <h1 class="text-5xl font-serif font-semibold text-primary mb-4">Publications</h1>
-        <p class="text-lg text-slate-600 mb-6">Research in coding theory, constrained systems, DNA storage, and symbolic dynamics. 278+ citations · h-index 9 · i10-index 6.</p>
+        <p class="text-lg text-slate-600 mb-6">Research in coding theory, constrained systems, DNA storage, and symbolic dynamics. 313 citations · h-index 10 · i10-index 10.</p>
         <div class="flex gap-4 flex-wrap">
             <a class="flex items-center gap-2 px-4 py-2 border border-primary text-primary rounded hover:bg-slate-50 transition-all" href="https://scholar.google.com/citations?user=w7IiZCQAAAAJ&hl=en" target="_blank">
                 <span class="material-symbols-outlined text-sm">school</span> Google Scholar
@@ -97,8 +97,8 @@
     <section class="flex flex-col md:flex-row gap-12 relative">
         <aside class="w-full md:w-1/4">
             <div class="sticky top-24 flex flex-col gap-4">
-                <h3 class="text-xs font-bold text-slate-400 uppercase tracking-widest">Filter by Year</h3>
-                <ul id="year-nav" class="flex flex-col gap-3 text-slate-500 border-l border-slate-200 pl-4">
+                <h3 class="text-xs font-bold text-slate-400 uppercase tracking-widest">Contents</h3>
+                <ul id="section-nav" class="flex flex-col gap-3 text-slate-500 border-l border-slate-200 pl-4">
                 </ul>
             </div>
         </aside>
@@ -120,8 +120,13 @@
 </footer>
 
 <script>
+    // Every entry below is cross-verified against DBLP, Crossref and Google Scholar.
+    // Years follow the official issue year (Crossref `published-print`), which for
+    // IEEE journals can be later than the "online first" year shown by Google Scholar.
     const publications = [
-        // 2026
+        /* ---------------------------------------------------------------
+           JOURNAL ARTICLES
+           --------------------------------------------------------------- */
         {
             year: 2026,
             type: "Journal",
@@ -129,19 +134,19 @@
             title: "Codes Correcting Two Bursts of Exactly b Deletions",
             authors: "Z. Ye, Y. Sun, W. Yu, G. Ge, O. Elishco",
             venue: "IEEE Transactions on Information Theory 72(4), 2083–2098 (2026)",
-            citations: 9,
+            citations: 18,
             links: { doi: "https://doi.org/10.1109/TIT.2025.3607876", arxiv: "https://arxiv.org/abs/2408.03113" }
         },
         {
             year: 2026,
-            type: "Preprint",
-            tag: "Symbolic Dynamics",
-            title: "Central Limit Theorem for Mutation Systems",
-            authors: "L. Koram, O. Elishco",
-            venue: "arXiv:2604.25445 (2026)",
-            links: { arxiv: "https://arxiv.org/abs/2604.25445" }
+            type: "Journal",
+            tag: "DNA Storage",
+            title: "Making It to First: The Random Access Problem in DNA Storage",
+            authors: "A. Boruchovsky, O. Elishco, R. Gabrys, A. Gruica, I. Tamo, E. Yaakobi",
+            venue: "IEEE Transactions on Information Theory 72(8), 5623–5638 (2026)",
+            citations: 13,
+            links: { doi: "https://doi.org/10.1109/TIT.2026.3699871", arxiv: "https://arxiv.org/abs/2501.12274" }
         },
-        // 2025
         {
             year: 2025,
             type: "Journal",
@@ -149,38 +154,9 @@
             title: "More on Codes for Combinatorial Composite DNA",
             authors: "Z. Ye, O. Sabary, R. Gabrys, E. Yaakobi, O. Elishco",
             venue: "Designs, Codes and Cryptography 93(8), 3437–3462 (2025)",
-            citations: 2,
-            links: { doi: "https://doi.org/10.1007/s10623-025-01634-8" }
+            citations: 4,
+            links: { doi: "https://doi.org/10.1007/s10623-025-01634-8", arxiv: "https://arxiv.org/abs/2608.08018" }
         },
-        {
-            year: 2025,
-            type: "Conference",
-            tag: "DNA Storage",
-            title: "Coding for Ordered Composite DNA Sequences",
-            authors: "B. Dollma, O. Elishco, E. Yaakobi",
-            venue: "IEEE ISIT 2025",
-            links: { doi: "https://doi.org/10.1109/ISIT63088.2025.11195553", arxiv: "https://arxiv.org/abs/2509.26119" }
-        },
-        {
-            year: 2025,
-            type: "Preprint",
-            tag: "DNA Storage",
-            title: "Making it to First: The Random Access Problem in DNA Storage",
-            authors: "A. Boruchovsky, O. Elishco, R. Gabrys, A. Gruica, I. Tamo, E. Yaakobi",
-            venue: "arXiv:2501.12274 (2025)",
-            citations: 6,
-            links: { arxiv: "https://arxiv.org/abs/2501.12274" }
-        },
-        {
-            year: 2025,
-            type: "Preprint",
-            tag: "Error Correction",
-            title: "On Multidimensional 2-Weight-Limited Burst-Correcting Codes",
-            authors: "H. Berend, O. Elishco, M. Schwartz",
-            venue: "arXiv:2510.25592 (2025)",
-            links: { arxiv: "https://arxiv.org/abs/2510.25592" }
-        },
-        // 2024
         {
             year: 2024,
             type: "Journal",
@@ -188,8 +164,18 @@
             title: "On the Long-Term Behavior of k-Tuples Frequencies in Mutation Systems",
             authors: "O. Elishco",
             venue: "IEEE Transactions on Information Theory 70(12), 8524–8545 (2024)",
-            citations: 5,
+            citations: 7,
             links: { doi: "https://doi.org/10.1109/TIT.2024.3456597", arxiv: "https://arxiv.org/abs/2401.04020" }
+        },
+        {
+            year: 2024,
+            type: "Journal",
+            tag: "Distributed Storage",
+            title: "Bounds and Constructions for Generalized Batch Codes",
+            authors: "X. Kong, O. Elishco",
+            venue: "IEEE Transactions on Information Theory 70(10), 6857–6876 (2024)",
+            citations: 2,
+            links: { doi: "https://doi.org/10.1109/TIT.2024.3396498", arxiv: "https://arxiv.org/abs/2309.06806" }
         },
         {
             year: 2024,
@@ -215,22 +201,12 @@
             year: 2024,
             type: "Journal",
             tag: "Distributed Storage",
-            title: "Bounds and Constructions for Generalized Batch Codes",
-            authors: "X. Kong, O. Elishco",
-            venue: "IEEE Transactions on Information Theory 70(10), 6857–6876 (2024)",
-            links: { doi: "https://doi.org/10.1109/TIT.2024.3396498", arxiv: "https://arxiv.org/abs/2309.06806" }
-        },
-        {
-            year: 2024,
-            type: "Journal",
-            tag: "Distributed Storage",
             title: "Storage Codes and Recoverable Systems on Lines and Grids",
             authors: "A. Barg, O. Elishco, R. Gabrys, G. Wang, E. Yaakobi",
             venue: "Designs, Codes and Cryptography 92(12), 4145–4168 (2024)",
             citations: 2,
             links: { doi: "https://doi.org/10.1007/s10623-024-01481-z", arxiv: "https://arxiv.org/abs/2308.14558" }
         },
-        // 2023
         {
             year: 2023,
             type: "Journal",
@@ -238,10 +214,9 @@
             title: "Optimal Reference for DNA Synthesis",
             authors: "O. Elishco, W. Huleihel",
             venue: "IEEE Transactions on Information Theory 69(11), 6941–6955 (2023)",
-            citations: 15,
+            citations: 18,
             links: { doi: "https://doi.org/10.1109/TIT.2023.3286694", arxiv: "https://arxiv.org/abs/2204.07013" }
         },
-        // 2022
         {
             year: 2022,
             type: "Journal",
@@ -249,10 +224,9 @@
             title: "Recoverable Systems",
             authors: "O. Elishco, A. Barg",
             venue: "IEEE Transactions on Information Theory 68(6), 3681–3699 (2022)",
-            citations: 10,
+            citations: 11,
             links: { doi: "https://doi.org/10.1109/TIT.2022.3153330", arxiv: "https://arxiv.org/abs/2010.00589" }
         },
-        // 2021
         {
             year: 2021,
             type: "Journal",
@@ -260,7 +234,7 @@
             title: "Repeat-Free Codes",
             authors: "O. Elishco, R. Gabrys, E. Yaakobi, M. Médard",
             venue: "IEEE Transactions on Information Theory 67(9), 5749–5764 (2021)",
-            citations: 50,
+            citations: 52,
             links: { doi: "https://doi.org/10.1109/TIT.2021.3092056", arxiv: "https://arxiv.org/abs/1909.05694" }
         },
         {
@@ -273,7 +247,6 @@
             citations: 3,
             links: { doi: "https://doi.org/10.1109/TIT.2020.3029427", arxiv: "https://arxiv.org/abs/1908.09900" }
         },
-        // 2020
         {
             year: 2020,
             type: "Journal",
@@ -284,15 +257,14 @@
             citations: 40,
             links: { doi: "https://doi.org/10.1109/TIT.2019.2942283" }
         },
-        // 2019
         {
             year: 2019,
             type: "Journal",
             tag: "Stochastic Processes",
             title: "The Entropy Rate of Some Pólya String Models",
-            authors: "O. Elishco, F. F. Hassanzadeh, M. Schwartz, J. Bruck",
+            authors: "O. Elishco, F. Farnoud Hassanzadeh, M. Schwartz, J. Bruck",
             venue: "IEEE Transactions on Information Theory 65(12), 8180–8193 (2019)",
-            citations: 9,
+            citations: 10,
             links: { doi: "https://doi.org/10.1109/TIT.2019.2936556", arxiv: "https://arxiv.org/abs/1808.06062" }
         },
         {
@@ -302,19 +274,9 @@
             title: "Blind Group Testing",
             authors: "W. Huleihel, O. Elishco, M. Médard",
             venue: "IEEE Transactions on Information Theory 65(8), 5050–5063 (2019)",
+            citations: 2,
             links: { doi: "https://doi.org/10.1109/TIT.2019.2906607" }
         },
-        {
-            year: 2019,
-            type: "Conference",
-            tag: "Information Theory",
-            title: "Throughput and Delay Analysis for Coded ARQ",
-            authors: "D. Malak, O. Elishco, M. Médard, E. M. Yeh",
-            venue: "WiOpt 2019",
-            citations: 4,
-            links: { doi: "https://doi.org/10.23919/WIOPT47501.2019.9144112" }
-        },
-        // 2018
         {
             year: 2018,
             type: "Journal",
@@ -322,7 +284,7 @@
             title: "On Independence and Capacity of Multidimensional Semiconstrained Systems",
             authors: "O. Elishco, T. Meyerovitch, M. Schwartz",
             venue: "IEEE Transactions on Information Theory 64(10), 6461–6483 (2018)",
-            citations: 3,
+            citations: 4,
             links: { doi: "https://doi.org/10.1109/TIT.2018.2824562", arxiv: "https://arxiv.org/abs/1709.05105" }
         },
         {
@@ -332,10 +294,9 @@
             title: "On Encoding Semiconstrained Systems",
             authors: "O. Elishco, T. Meyerovitch, M. Schwartz",
             venue: "IEEE Transactions on Information Theory 64(4), 2474–2484 (2018)",
-            citations: 9,
+            citations: 10,
             links: { doi: "https://doi.org/10.1109/TIT.2017.2771743", arxiv: "https://arxiv.org/abs/1601.05594" }
         },
-        // 2016
         {
             year: 2016,
             type: "Journal",
@@ -343,8 +304,169 @@
             title: "Semiconstrained Systems",
             authors: "O. Elishco, T. Meyerovitch, M. Schwartz",
             venue: "IEEE Transactions on Information Theory 62(4), 1688–1702 (2016)",
-            citations: 18,
-            links: { doi: "https://doi.org/10.1109/TIT.2016.2531722" }
+            citations: 20,
+            links: { doi: "https://doi.org/10.1109/TIT.2016.2531722", arxiv: "https://arxiv.org/abs/1401.2612" }
+        },
+        {
+            year: 2014,
+            type: "Journal",
+            tag: "Information Theory",
+            title: "Capacity and Coding for the Ising Channel with Feedback",
+            authors: "O. Elishco, H. H. Permuter",
+            venue: "IEEE Transactions on Information Theory 60(9), 5138–5149 (2014)",
+            citations: 65,
+            links: { doi: "https://doi.org/10.1109/TIT.2014.2331951", arxiv: "https://arxiv.org/abs/1205.4674" }
+        },
+
+        // --- Journal preprints: submitted / under review, no published version yet.
+        //     Classified as journal (not conference) by length: 23, 47 and 23 pages.
+        {
+            year: 2026,
+            type: "Journal",
+            status: "Preprint",
+            tag: "Quantum Codes",
+            title: "Quantum Codes with Transversal CCZ Gates and Sublinear Z-Stabilizers",
+            authors: "O. Elishco, I. Tamo",
+            venue: "arXiv:2606.22472 (2026), 23 pages",
+            links: { arxiv: "https://arxiv.org/abs/2606.22472" }
+        },
+        {
+            year: 2026,
+            type: "Journal",
+            status: "Preprint",
+            tag: "Symbolic Dynamics",
+            title: "Central Limit Theorem for Mutation Systems",
+            authors: "L. Koram, O. Elishco",
+            venue: "arXiv:2604.25445 (2026), 47 pages",
+            links: { arxiv: "https://arxiv.org/abs/2604.25445" }
+        },
+        {
+            year: 2025,
+            type: "Journal",
+            status: "Preprint",
+            tag: "Error Correction",
+            title: "On Multidimensional 2-Weight-Limited Burst-Correcting Codes",
+            authors: "H. Berend, O. Elishco, M. Schwartz",
+            venue: "arXiv:2510.25592 (2025), 23 pages",
+            links: { arxiv: "https://arxiv.org/abs/2510.25592" }
+        },
+
+        /* ---------------------------------------------------------------
+           CONFERENCE PAPERS
+           Where a work also has a journal version, the arXiv preprint is the
+           extended journal manuscript and is linked from that entry instead.
+           --------------------------------------------------------------- */
+        {
+            year: 2025,
+            type: "Conference",
+            tag: "DNA Storage",
+            title: "Coding for Ordered Composite DNA Sequences",
+            authors: "B. Dollma, O. Elishco, E. Yaakobi",
+            venue: "IEEE International Symposium on Information Theory (ISIT) 2025, pp. 1–6",
+            citations: 2,
+            links: { doi: "https://doi.org/10.1109/ISIT63088.2025.11195553", arxiv: "https://arxiv.org/abs/2509.26119" }
+        },
+        {
+            year: 2024,
+            type: "Conference",
+            tag: "Symbolic Dynamics",
+            title: "On the Long-Term Behavior of k-Tuples Frequencies in Mutation Systems",
+            authors: "O. Elishco",
+            venue: "IEEE International Symposium on Information Theory (ISIT) 2024, pp. 1736–1741",
+            links: { doi: "https://doi.org/10.1109/ISIT57864.2024.10619643" }
+        },
+        {
+            year: 2023,
+            type: "Conference",
+            tag: "Coding Theory",
+            title: "Codes over Absorption Channels",
+            authors: "Z. Ye, O. Elishco",
+            venue: "IEEE International Symposium on Information Theory (ISIT) 2023, pp. 636–641",
+            links: { doi: "https://doi.org/10.1109/ISIT54713.2023.10206514" }
+        },
+        {
+            year: 2022,
+            type: "Conference",
+            tag: "Distributed Storage",
+            title: "Recoverable Systems on Lines and Grids",
+            authors: "A. Barg, O. Elishco, R. Gabrys, E. Yaakobi",
+            venue: "IEEE International Symposium on Information Theory (ISIT) 2022, pp. 2637–2642",
+            citations: 1,
+            links: { doi: "https://doi.org/10.1109/ISIT50566.2022.9834541" }
+        },
+        {
+            year: 2021,
+            type: "Conference",
+            tag: "Distributed Storage",
+            title: "Capacity and Construction of Recoverable Systems",
+            authors: "O. Elishco, A. Barg",
+            venue: "IEEE International Symposium on Information Theory (ISIT) 2021, pp. 3273–3278",
+            citations: 1,
+            links: { doi: "https://doi.org/10.1109/ISIT45174.2021.9518011" }
+        },
+        {
+            year: 2019,
+            type: "Conference",
+            tag: "Symbolic Dynamics",
+            title: "Capacity of Dynamical Storage Systems",
+            authors: "O. Elishco, A. Barg",
+            venue: "IEEE International Symposium on Information Theory (ISIT) 2019, pp. 1562–1566",
+            links: { doi: "https://doi.org/10.1109/ISIT.2019.8849745" }
+        },
+        {
+            year: 2019,
+            type: "Conference",
+            tag: "DNA Storage",
+            title: "Repeat-Free Codes",
+            authors: "O. Elishco, R. Gabrys, M. Médard, E. Yaakobi",
+            venue: "IEEE International Symposium on Information Theory (ISIT) 2019, pp. 932–936",
+            links: { doi: "https://doi.org/10.1109/ISIT.2019.8849483" }
+        },
+        {
+            year: 2019,
+            type: "Conference",
+            tag: "Information Theory",
+            title: "Throughput and Delay Analysis for Coded ARQ",
+            authors: "D. Malak, O. Elishco, M. Médard, E. M. Yeh",
+            venue: "International Symposium on Modeling and Optimization in Mobile, Ad Hoc, and Wireless Networks (WiOpt) 2019, pp. 1–8",
+            citations: 4,
+            links: { doi: "https://doi.org/10.23919/WIOPT47501.2019.9144112" }
+        },
+        {
+            year: 2018,
+            type: "Conference",
+            tag: "Information Theory",
+            title: "Blind Group Testing",
+            authors: "W. Huleihel, O. Elishco, M. Médard",
+            venue: "IEEE International Symposium on Information Theory (ISIT) 2018, pp. 2594–2598",
+            links: { doi: "https://doi.org/10.1109/ISIT.2018.8437582" }
+        },
+        {
+            year: 2018,
+            type: "Conference",
+            tag: "Coding Theory",
+            title: "Bounds and Constructions of Codes over Symbol-Pair Read Channels",
+            authors: "O. Elishco, R. Gabrys, E. Yaakobi",
+            venue: "IEEE International Symposium on Information Theory (ISIT) 2018, pp. 2505–2509",
+            links: { doi: "https://doi.org/10.1109/ISIT.2018.8437501" }
+        },
+        {
+            year: 2017,
+            type: "Conference",
+            tag: "Constrained Coding",
+            title: "Multidimensional Semiconstrained Systems",
+            authors: "O. Elishco, T. Meyerovitch, M. Schwartz",
+            venue: "IEEE International Symposium on Information Theory (ISIT) 2017, pp. 1490–1494",
+            links: { doi: "https://doi.org/10.1109/ISIT.2017.8006777" }
+        },
+        {
+            year: 2016,
+            type: "Conference",
+            tag: "Constrained Coding",
+            title: "Encoding Semiconstrained Systems",
+            authors: "O. Elishco, T. Meyerovitch, M. Schwartz",
+            venue: "IEEE International Symposium on Information Theory (ISIT) 2016, pp. 395–399",
+            links: { doi: "https://doi.org/10.1109/ISIT.2016.7541328" }
         },
         {
             year: 2016,
@@ -352,35 +474,39 @@
             tag: "Stochastic Processes",
             title: "The Capacity of Some Pólya String Models",
             authors: "O. Elishco, F. Farnoud, M. Schwartz, J. Bruck",
-            venue: "IEEE ISIT 2016, pp. 270–274",
+            venue: "IEEE International Symposium on Information Theory (ISIT) 2016, pp. 270–274",
             citations: 9,
             links: { doi: "https://doi.org/10.1109/ISIT.2016.7541303" }
         },
-        // 2014
         {
-            year: 2014,
-            type: "Journal",
-            tag: "Information Theory",
-            title: "Capacity and Coding for the Ising Channel with Feedback",
-            authors: "O. Elishco, H. Permuter",
-            venue: "IEEE Transactions on Information Theory 60(9), 5138–5149 (2014)",
-            citations: 63,
-            links: { doi: "https://doi.org/10.1109/TIT.2014.2331951" }
+            year: 2015,
+            type: "Conference",
+            tag: "Constrained Coding",
+            title: "Semiconstrained Systems",
+            authors: "O. Elishco, T. Meyerovitch, M. Schwartz",
+            venue: "IEEE International Symposium on Information Theory (ISIT) 2015, pp. 246–250",
+            links: { doi: "https://doi.org/10.1109/ISIT.2015.7282454" }
         },
-        // 2011
         {
             year: 2011,
             type: "Conference",
             tag: "Information Theory",
             title: "Capacity of the Ising Channel with Feedback",
             authors: "O. Elishco, H. H. Permuter",
-            venue: "IEEE ISIT 2011, pp. 3004–3008",
+            venue: "IEEE International Symposium on Information Theory (ISIT) 2011, pp. 3004–3008",
             citations: 3,
             links: { doi: "https://doi.org/10.1109/ISIT.2011.6034130" }
         }
     ];
 
+    // Order of the sections rendered on the page.
+    const sections = [
+        { type: "Journal",    id: "journal-articles",   heading: "Journal Articles" },
+        { type: "Conference", id: "conference-papers",  heading: "Conference Papers" },
+    ];
+
     const tagColors = {
+        "Quantum Codes":       "bg-cyan-50 text-cyan-700",
         "Error Correction":    "bg-blue-50 text-blue-700",
         "DNA Storage":         "bg-green-50 text-green-700",
         "Symbolic Dynamics":   "bg-purple-50 text-purple-700",
@@ -391,61 +517,64 @@
         "Information Theory":  "bg-slate-100 text-slate-700",
     };
 
-    const typeColors = {
-        "Journal":    "bg-teal-50 text-teal-700",
-        "Conference": "bg-amber-50 text-amber-700",
-        "Preprint":   "bg-purple-50 text-purple-700",
-    };
+    function renderPaper(paper) {
+        const tagClass = tagColors[paper.tag] || "bg-slate-100 text-slate-600";
+        const citeBadge = paper.citations ? `<span class="text-xs text-slate-400 italic">${paper.citations} citation${paper.citations !== 1 ? 's' : ''}</span>` : '';
+        // Unpublished manuscripts sit in their destination section but stay clearly marked.
+        const statusBadge = paper.status ? `<span class="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded bg-amber-50 text-amber-700 ring-1 ring-amber-200">${paper.status}</span>` : '';
+
+        let links = '';
+        if (paper.links.doi) {
+            const doiLabel = paper.type === 'Conference' ? 'Proceedings' : 'Journal';
+            links += `<a href="${paper.links.doi}" target="_blank" class="text-[#319795] text-sm font-bold flex items-center gap-1 hover:underline"><span class="material-symbols-outlined text-sm">open_in_new</span> ${doiLabel}</a>`;
+        }
+        if (paper.links.arxiv) {
+            links += `<a href="${paper.links.arxiv}" target="_blank" class="text-[#319795] text-sm font-bold flex items-center gap-1 hover:underline"><span class="material-symbols-outlined text-sm">description</span> arXiv</a>`;
+        }
+        if (paper.links.scholar) {
+            links += `<a href="${paper.links.scholar}" target="_blank" class="text-slate-500 text-sm font-bold flex items-center gap-1 hover:underline"><span class="material-symbols-outlined text-sm">school</span> Scholar</a>`;
+        }
+
+        return `
+            <article class="group p-4 -mx-4 rounded-xl hover:bg-white hover:shadow-md transition-all duration-300">
+                <div class="flex gap-2 mb-2 flex-wrap items-center">
+                    <span class="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded bg-slate-100 text-slate-700 tabular-nums">${paper.year}</span>
+                    <span class="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded ${tagClass}">${paper.tag}</span>
+                    ${statusBadge}
+                    ${citeBadge}
+                </div>
+                <h3 class="text-xl font-semibold text-slate-800 group-hover:text-[#319795] transition-colors">${paper.title}</h3>
+                <p class="text-slate-600 mt-1">${paper.authors}</p>
+                <p class="text-sm text-slate-400 italic mt-1">${paper.venue}</p>
+                <div class="flex gap-4 mt-4">${links}</div>
+            </article>
+        `;
+    }
 
     function renderPublications() {
         const feed = document.getElementById('publications-feed');
-        const nav = document.getElementById('year-nav');
-
-        const years = [...new Set(publications.map(p => p.year))].sort((a, b) => b - a);
+        const nav = document.getElementById('section-nav');
 
         feed.innerHTML = '';
         nav.innerHTML = '';
 
-        years.forEach(year => {
-            nav.innerHTML += `<li><a href="#year-${year}" class="hover:text-[#319795] transition-all">${year}</a></li>`;
+        sections.forEach(({ type, id, heading }) => {
+            const papers = publications
+                .filter(p => p.type === type)
+                .sort((a, b) => b.year - a.year);
+            if (!papers.length) return;
+
+            nav.innerHTML += `<li><a href="#${id}" class="hover:text-[#319795] transition-all flex justify-between items-baseline gap-2"><span>${heading}</span><span class="text-xs text-slate-400 tabular-nums">${papers.length}</span></a></li>`;
 
             const section = document.createElement('div');
-            section.id = `year-${year}`;
-            section.className = "flex flex-col gap-6";
-            section.innerHTML = `<h2 class="text-3xl font-serif font-medium text-primary border-b pb-2">${year}</h2>`;
-
-            const yearPapers = publications.filter(p => p.year === year);
-            yearPapers.forEach(paper => {
-                const tagClass = tagColors[paper.tag] || "bg-slate-100 text-slate-600";
-                const typeClass = typeColors[paper.type] || "bg-slate-100 text-slate-600";
-                const citeBadge = paper.citations ? `<span class="text-xs text-slate-400 italic">${paper.citations} citation${paper.citations !== 1 ? 's' : ''}</span>` : '';
-
-                let links = '';
-                if (paper.links.doi) {
-                    const doiLabel = paper.type === 'Conference' ? 'Proceedings' : 'Journal';
-                    links += `<a href="${paper.links.doi}" target="_blank" class="text-[#319795] text-sm font-bold flex items-center gap-1 hover:underline"><span class="material-symbols-outlined text-sm">open_in_new</span> ${doiLabel}</a>`;
-                }
-                if (paper.links.arxiv) {
-                    links += `<a href="${paper.links.arxiv}" target="_blank" class="text-[#319795] text-sm font-bold flex items-center gap-1 hover:underline"><span class="material-symbols-outlined text-sm">description</span> arXiv</a>`;
-                }
-                if (paper.links.scholar) {
-                    links += `<a href="${paper.links.scholar}" target="_blank" class="text-slate-500 text-sm font-bold flex items-center gap-1 hover:underline"><span class="material-symbols-outlined text-sm">school</span> Scholar</a>`;
-                }
-
-                section.innerHTML += `
-                    <article class="group p-4 -mx-4 rounded-xl hover:bg-white hover:shadow-md transition-all duration-300">
-                        <div class="flex gap-2 mb-2 flex-wrap items-center">
-                            <span class="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded ${typeClass}">${paper.type}</span>
-                            <span class="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded ${tagClass}">${paper.tag}</span>
-                            ${citeBadge}
-                        </div>
-                        <h3 class="text-xl font-semibold text-slate-800 group-hover:text-[#319795] transition-colors">${paper.title}</h3>
-                        <p class="text-slate-600 mt-1">${paper.authors}</p>
-                        <p class="text-sm text-slate-400 italic mt-1">${paper.venue}</p>
-                        <div class="flex gap-4 mt-4">${links}</div>
-                    </article>
-                `;
-            });
+            section.id = id;
+            section.className = "flex flex-col gap-6 scroll-mt-24";
+            section.innerHTML = `
+                <h2 class="text-3xl font-serif font-medium text-primary border-b pb-2 flex items-baseline justify-between gap-4">
+                    <span>${heading}</span>
+                    <span class="text-sm font-sans text-slate-400 tabular-nums">${papers.length}</span>
+                </h2>`;
+            section.innerHTML += papers.map(renderPaper).join('');
             feed.appendChild(section);
         });
     }
@@ -455,7 +584,7 @@
     // Scroll-spy: highlight the active year in the sidebar as user scrolls
     (function () {
         const navLinks = {};
-        document.querySelectorAll('#year-nav a').forEach(a => {
+        document.querySelectorAll('#section-nav a').forEach(a => {
             const id = a.getAttribute('href').slice(1);
             navLinks[id] = a;
         });
@@ -471,7 +600,7 @@
             });
         }, { rootMargin: '-10% 0px -80% 0px', threshold: 0 });
 
-        document.querySelectorAll('#publications-feed > div[id^="year-"]').forEach(el => observer.observe(el));
+        document.querySelectorAll('#publications-feed > div[id]').forEach(el => observer.observe(el));
     })();
 
     document.getElementById('mobile-menu-btn').addEventListener('click', function () {
