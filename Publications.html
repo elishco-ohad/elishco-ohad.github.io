@@ -563,7 +563,7 @@
         if (paper.links.scholar)parts.push(`<a href="${paper.links.scholar}" target="_blank" class="${mutedLinkStyle}">${icon('school')}Scholar</a>`);
 
         return `
-            <li class="group flex gap-3 py-2 px-2 -mx-2 rounded-lg hover:bg-white hover:shadow-sm transition-all">
+            <li class="group flex gap-3 py-2 px-2 rounded-lg hover:bg-white hover:shadow-sm transition-all">
                 <span class="shrink-0 w-6 text-right text-xs font-semibold text-slate-300 tabular-nums pt-1 group-hover:text-[#319795] transition-colors">${number}.</span>
                 <div class="min-w-0">
                     <h3 class="text-[15px] leading-snug font-semibold text-slate-800 group-hover:text-[#319795] transition-colors">
@@ -614,16 +614,16 @@
                     <span class="text-sm font-sans text-slate-400 tabular-nums">${papers.length}</span>
                 </h2>`;
 
-            // Each year block: the list on the left, a coloured rule and the year on the right.
+            // Each year block: the year and a coloured rule on the left, the list on the right.
             let n = 0;
             section.innerHTML += groupByYear(papers).map(group => {
                 const items = group.papers.map(p => renderPaper(p, ++n)).join('');
                 return `
                     <div class="flex gap-4 items-stretch">
-                        <ol class="flex-1 min-w-0 flex flex-col">${items}</ol>
-                        <div class="shrink-0 border-l-2 border-[#319795] pl-2">
+                        <div class="shrink-0 border-r-2 border-[#319795] pr-2 text-right">
                             <span class="sticky top-24 block text-sm font-semibold text-[#319795] tabular-nums">${group.year}</span>
                         </div>
+                        <ol class="flex-1 min-w-0 flex flex-col">${items}</ol>
                     </div>
                 `;
             }).join('');
