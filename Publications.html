@@ -344,6 +344,16 @@
             year: 2025,
             type: "Journal",
             status: "Preprint",
+            tag: "DNA Storage",
+            title: "Coding for Ordered Composite DNA Sequences",
+            authors: "B. Dollma, O. Elishco, E. Yaakobi",
+            venue: "arXiv:2509.26119 (2025), 40 pages — submitted to IEEE Trans. Inf. Theory",
+            links: { arxiv: "https://arxiv.org/abs/2509.26119" }
+        },
+        {
+            year: 2025,
+            type: "Journal",
+            status: "Preprint",
             tag: "Error Correction",
             title: "On Multidimensional 2-Weight-Limited Burst-Correcting Codes",
             authors: "H. Berend, O. Elishco, M. Schwartz",
@@ -379,7 +389,7 @@
             authors: "B. Dollma, O. Elishco, E. Yaakobi",
             venue: "IEEE International Symposium on Information Theory (ISIT) 2025, pp. 1–6",
             citations: 2,
-            links: { doi: "https://doi.org/10.1109/ISIT63088.2025.11195553", arxiv: "https://arxiv.org/abs/2509.26119" }
+            links: { doi: "https://doi.org/10.1109/ISIT63088.2025.11195553" }
         },
         {
             year: 2024,
@@ -532,44 +542,52 @@
         "Information Theory":  "bg-slate-100 text-slate-700",
     };
 
-    function renderPaper(paper) {
-        const tagClass = tagColors[paper.tag] || "bg-slate-100 text-slate-600";
-        const citeBadge = paper.citations ? `<span class="text-xs text-slate-400 italic">${paper.citations} citation${paper.citations !== 1 ? 's' : ''}</span>` : '';
-        // Unpublished manuscripts sit in their destination section but stay clearly marked.
-        const statusBadge = paper.status ? `<span class="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded bg-amber-50 text-amber-700 ring-1 ring-amber-200">${paper.status}</span>` : '';
+    const linkStyle = "text-[#319795] hover:underline flex items-center gap-0.5";
+    const mutedLinkStyle = "text-slate-500 hover:underline flex items-center gap-0.5";
 
-        let links = '';
+    function renderPaper(paper, number) {
+        const tagClass = tagColors[paper.tag] || "bg-slate-100 text-slate-600";
+        const cite = paper.citations ? `<span class="text-slate-400"> · ${paper.citations} citation${paper.citations !== 1 ? 's' : ''}</span>` : '';
+        // Unpublished manuscripts sit in their destination section but stay clearly marked.
+        const statusBadge = paper.status ? `<span class="text-[9px] uppercase font-bold tracking-wider px-1.5 py-px rounded bg-amber-50 text-amber-700 ring-1 ring-amber-200 align-middle">${paper.status}</span>` : '';
+
+        const icon = n => `<span class="material-symbols-outlined" style="font-size:13px;">${n}</span>`;
+        const parts = [];
         if (paper.links.doi) {
             const doiLabel = paper.type === 'Conference' ? 'Proceedings' : 'Journal';
-            links += `<a href="${paper.links.doi}" target="_blank" class="text-[#319795] text-sm font-bold flex items-center gap-1 hover:underline"><span class="material-symbols-outlined text-sm">open_in_new</span> ${doiLabel}</a>`;
+            parts.push(`<a href="${paper.links.doi}" target="_blank" class="${linkStyle}">${icon('open_in_new')}${doiLabel}</a>`);
         }
-        if (paper.links.paper) {
-            links += `<a href="${paper.links.paper}" target="_blank" class="text-[#319795] text-sm font-bold flex items-center gap-1 hover:underline"><span class="material-symbols-outlined text-sm">description</span> Extended Abstract</a>`;
-        }
-        if (paper.links.arxiv) {
-            links += `<a href="${paper.links.arxiv}" target="_blank" class="text-[#319795] text-sm font-bold flex items-center gap-1 hover:underline"><span class="material-symbols-outlined text-sm">description</span> arXiv</a>`;
-        }
-        if (paper.links.slides) {
-            links += `<a href="${paper.links.slides}" target="_blank" class="text-slate-500 text-sm font-bold flex items-center gap-1 hover:underline"><span class="material-symbols-outlined text-sm">slideshow</span> Slides</a>`;
-        }
-        if (paper.links.scholar) {
-            links += `<a href="${paper.links.scholar}" target="_blank" class="text-slate-500 text-sm font-bold flex items-center gap-1 hover:underline"><span class="material-symbols-outlined text-sm">school</span> Scholar</a>`;
-        }
+        if (paper.links.paper)  parts.push(`<a href="${paper.links.paper}" target="_blank" class="${linkStyle}">${icon('description')}Extended Abstract</a>`);
+        if (paper.links.arxiv)  parts.push(`<a href="${paper.links.arxiv}" target="_blank" class="${linkStyle}">${icon('description')}arXiv</a>`);
+        if (paper.links.slides) parts.push(`<a href="${paper.links.slides}" target="_blank" class="${mutedLinkStyle}">${icon('slideshow')}Slides</a>`);
+        if (paper.links.scholar)parts.push(`<a href="${paper.links.scholar}" target="_blank" class="${mutedLinkStyle}">${icon('school')}Scholar</a>`);
 
         return `
-            <article class="group p-4 -mx-4 rounded-xl hover:bg-white hover:shadow-md transition-all duration-300">
-                <div class="flex gap-2 mb-2 flex-wrap items-center">
-                    <span class="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded bg-slate-100 text-slate-700 tabular-nums">${paper.year}</span>
-                    <span class="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded ${tagClass}">${paper.tag}</span>
-                    ${statusBadge}
-                    ${citeBadge}
+            <li class="group flex gap-3 py-2 px-2 -mx-2 rounded-lg hover:bg-white hover:shadow-sm transition-all">
+                <span class="shrink-0 w-6 text-right text-xs font-semibold text-slate-300 tabular-nums pt-1 group-hover:text-[#319795] transition-colors">${number}.</span>
+                <div class="min-w-0">
+                    <h3 class="text-[15px] leading-snug font-semibold text-slate-800 group-hover:text-[#319795] transition-colors">
+                        ${paper.title}
+                        <span class="text-[9px] uppercase font-bold tracking-wider px-1.5 py-px rounded ${tagClass} align-middle ml-1 whitespace-nowrap">${paper.tag}</span>
+                        ${statusBadge}
+                    </h3>
+                    <p class="text-[13px] text-slate-600 leading-snug">${paper.authors}</p>
+                    <p class="text-[12px] text-slate-400 italic leading-snug">${paper.venue}${cite}</p>
+                    <div class="flex flex-wrap gap-x-3 gap-y-0.5 mt-0.5 text-[12px] font-semibold">${parts.join('')}</div>
                 </div>
-                <h3 class="text-xl font-semibold text-slate-800 group-hover:text-[#319795] transition-colors">${paper.title}</h3>
-                <p class="text-slate-600 mt-1">${paper.authors}</p>
-                <p class="text-sm text-slate-400 italic mt-1">${paper.venue}</p>
-                <div class="flex gap-4 mt-4">${links}</div>
-            </article>
+            </li>
         `;
+    }
+
+    // Groups consecutive papers of the same year, preserving the incoming order.
+    function groupByYear(papers) {
+        const groups = [];
+        papers.forEach(p => {
+            const last = groups[groups.length - 1];
+            if (last && last.year === p.year) last.papers.push(p);
+            else groups.push({ year: p.year, papers: [p] });
+        });
+        return groups;
     }
 
     function renderPublications() {
@@ -589,13 +607,27 @@
 
             const section = document.createElement('div');
             section.id = id;
-            section.className = "flex flex-col gap-6 scroll-mt-24";
+            section.className = "flex flex-col gap-4 scroll-mt-24";
             section.innerHTML = `
-                <h2 class="text-3xl font-serif font-medium text-primary border-b pb-2 flex items-baseline justify-between gap-4">
+                <h2 class="text-2xl font-serif font-medium text-primary border-b pb-1.5 flex items-baseline justify-between gap-4">
                     <span>${heading}</span>
                     <span class="text-sm font-sans text-slate-400 tabular-nums">${papers.length}</span>
                 </h2>`;
-            section.innerHTML += papers.map(renderPaper).join('');
+
+            // Each year block: the list on the left, a coloured rule and the year on the right.
+            let n = 0;
+            section.innerHTML += groupByYear(papers).map(group => {
+                const items = group.papers.map(p => renderPaper(p, ++n)).join('');
+                return `
+                    <div class="flex gap-4 items-stretch">
+                        <ol class="flex-1 min-w-0 flex flex-col">${items}</ol>
+                        <div class="shrink-0 border-l-2 border-[#319795] pl-2">
+                            <span class="sticky top-24 block text-sm font-semibold text-[#319795] tabular-nums">${group.year}</span>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+
             feed.appendChild(section);
         });
     }
